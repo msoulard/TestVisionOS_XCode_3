@@ -9,9 +9,14 @@ import SwiftUI
 
 @main
 struct TestVisionOS_XCode_3App: App {
+    @State private var style: ImmersionStyle = .mixed
     var body: some Scene {
         WindowGroup {
             ContentView()
         }.windowStyle(.volumetric)
+            .immersionStyle(selection: $style, in: .full)
+        ImmersiveSpace(id: "immersiveSpace"){
+            ContentView()
+        }.immersionStyle(selection: $style, in: .full)
     }
 }
